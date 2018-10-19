@@ -16,7 +16,8 @@ def remove_punct(text):
     >>> remove_punct(",go!So.?uTh")
     'goSouTh'
     """
-    pass # The pass statement does nothing. Replace it with the body of your function.
+    shave = text.translate(str.maketrans("", "", string.punctuation))
+    return shave
     
 def remove_spaces(text):
     """This function is used to remove leading and trailing spaces from a string.
@@ -34,7 +35,8 @@ def remove_spaces(text):
     >>> remove_spaces("   ")
     ''
     """
-    pass
+    strip = text.strip()
+    return strip
 
 
 def normalise_input(user_input):
@@ -49,7 +51,10 @@ def normalise_input(user_input):
     >>> normalise_input("HELP!!!!!!!")
     'help'
     """
-    pass
+    user_input = remove_punct(user_input)
+    user_input = user_input.lower()
+    user_input = remove_spaces(user_input)
+    return user_input
 
     
 def display_room(room):
@@ -146,7 +151,11 @@ def is_valid_exit(exits, user_input):
     >>> is_valid_exit(rooms["Parking"]["exits"], "east")
     True
     """
-    pass
+    try:
+        exits[user_input]
+        return True
+    except:
+        return False
 
 
 def menu(exits):
@@ -163,7 +172,11 @@ def menu(exits):
     while True:
         print_menu(exits)
         user_input = input()
-        return user_input
+        user_input = normalise_input(user_input)
+        if is_valid_exit(exits, user_input) == True:
+            return user_input
+        else:
+            print("This is not a valid Direction!".upper())
         # COMPLETE THIS PART:
         
         # Display menu
@@ -190,13 +203,12 @@ def move(exits, direction):
     >>> move(rooms["Reception"]["exits"], "west") == rooms["Office"]
     False
     """
-    
-
+    Grab_Direction = [exits][0][direction]
+    Name_of_Direction = rooms[Grab_Direction]
+    return Name_of_Direction
 
 # This is the entry point of our program
 def main():
-    import doctest
-    doctest.testmod()
     # Start game at the reception
     current_room = rooms["Reception"]
     # Main game loop

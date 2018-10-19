@@ -9,7 +9,7 @@ seems to be playing an old school text-based adventure
 game on his computer. There are corridors leading to the
 south and east. The exit is to the west.""",
 
-    "exits": {"south": "MJ and Simon's room", "east" : "your personal tutor's office", "west" : "the parking lot"} # COMPLETE ME! ADD EXITS!
+    "exits": {"south": "Admins", "east" : "Tutor", "west" : "Parking"} # COMPLETE ME! ADD EXITS!
 }
 
 room_admins = {
@@ -43,7 +43,7 @@ room_parking = {
 You can go south to the COMSC reception, or east to the
 general office.""",
 
-    "exits": {"south" : "Reception", "east" : "the general office"}# ADD EXITS HERE!
+    "exits": {"south" : "Reception", "east" : "Office"}# ADD EXITS HERE!
 }
 
 room_office = {
@@ -55,7 +55,7 @@ room_office = {
 in their eyes. If you go west you can return to the
 Queen's Buildings.""",
 
-    "exits": {"west" : "the parking lot"}# ADD EXITS HERE!
+    "exits": {"west" : "Parking"}# ADD EXITS HERE!
 }
 
 
